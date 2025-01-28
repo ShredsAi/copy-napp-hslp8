@@ -131,7 +131,7 @@ public class DomainValidationException extends RuntimeException {
 
     @Override
     public String toString() {
-        return String.format("DomainValidationException{message='%s', field='%s', errors=%s}", 
+        return String.format("DomainValidationException{message='%s', field='%s', errors=%s}",
             getMessage(), field, errors);
     }
 }

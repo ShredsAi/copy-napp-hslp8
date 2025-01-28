@@ -67,9 +67,9 @@ public class InfrastructureDataAccessException extends RuntimeException {
 
     @Override
     public String getMessage() {
-        return String.format("[%s] %s (occurred at %s)", 
-                errorCode.getCode(), 
-                super.getMessage(), 
+        return String.format("[%s] %s (occurred at %s)",
+                errorCode.getCode(),
+                super.getMessage(),
                 timestamp);
     }
 
@@ -79,7 +79,7 @@ public class InfrastructureDataAccessException extends RuntimeException {
                 .append("
 Additional Details:");
 
-        additionalDetails.forEach((key, value) -> 
+        additionalDetails.forEach((key, value) ->
                 sb.append("
   ")
                   .append(key)
