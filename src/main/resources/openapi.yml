@@ -1,0 +1,89 @@
+openapi: 3.0.3
+info:
+  title: Menu Record Shred API
+  description: API for managing Menu Records and Dish Items
+  version: 1.0.0
+paths:
+  /menu-records:
+    get:
+      summary: List menu records
+      responses:
+        '200':
+          description: Successfully retrieves menu records
+    post:
+      summary: Create menu record
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Successfully created a menu record
+  /menu-records/{menuRecordId}:
+    get:
+      summary: Retrieve a menu record by ID
+      parameters:
+        - name: menuRecordId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved the menu record
+    put:
+      summary: Update existing menu record
+      parameters:
+        - name: menuRecordId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully updated the menu record
+    delete:
+      summary: Delete menu record
+      parameters:
+        - name: menuRecordId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Successfully deleted the menu record
+components:
+  schemas:
+    CreateMenuRecordRequest:
+      type: object
+      properties:
+        restaurantId:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+        status:
+          type: string
+    MenuRecordResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        restaurantId:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+        status:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+        restaurantLocation:
+          type: object
